@@ -9,11 +9,15 @@
 <f:loadBundle basename="application" var="msg" />
 
 <head>
-    <title><h:outputText value="#{msg.welcomeTitle}" /></title>
+    <title>Szkielet</title>
 </head>
 
 <body>
-<h3><h:outputText value="#{msg.welcomeHeading}" /></h3>
-<p><h:outputText value="#{msg.welcomeMessage}" /></p>
+
+	<h:form id="personForm">
+		<h:inputText value="#{personBean.firstName}"></h:inputText>
+		<h:inputText value="#{personBean.lastName}"></h:inputText>
+		<h:commandButton value="submit" type="submit" action="#{personBean.save}" />
+	</h:form>
 </body>
 </html>

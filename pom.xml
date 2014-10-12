@@ -1,43 +1,68 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>szkielet</groupId>
-  <artifactId>szkielet</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
-  <build>
-	   <plugins>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>szkielet</groupId>
+	<artifactId>szkielet</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<dependencies>
+		<dependency>
+		    <groupId>org.hibernate</groupId>
+		    <artifactId>hibernate-entitymanager</artifactId>
+		    <version>4.3.0.Final</version>
+		</dependency>
+		<dependency>
+	        <groupId>javax.ejb</groupId>
+	        <artifactId>ejb-api</artifactId>
+	        <version>3.0</version>
+        	<scope>provided</scope>
+    	</dependency>
+    	<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.3.2</version>
+		</dependency>
+		<dependency>
+		  <groupId>javax</groupId>
+		  <artifactId>javaee-api</artifactId>
+		  <version>7.0</version>
+  		  <scope>provided</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
 			<plugin>
-			    <groupId>org.glassfish.maven.plugin</groupId>
-			    <artifactId>maven-glassfish-plugin</artifactId>
-			    <version>2.1</version>
-			    <configuration>
-			        <glassfishDirectory>/opt/glassfish4/glassfish</glassfishDirectory>
-			        <user>admin</user>
-			        <adminPassword>password</adminPassword>
-			        <autoCreate>true</autoCreate>
-			        <debug>true</debug>
-			        <echo>false</echo>
-			        <terse>true</terse>
-			        <domain>
-			            <name>domain1</name>
-			            <adminPort>4848</adminPort>
-			            <httpPort>8080</httpPort>
-			            <httpsPort>8181</httpsPort>
-			            <iiopPort>3700</iiopPort>
-			            <jmsPort>7676</jmsPort>
-			            <reuse>false</reuse>
-			        </domain>
-			        <components>
-			            <component>
-			                <name>${project.artifactId}</name>
-			                <artifact>
-			                    ${project.build.directory}/${project.build.finalName}.war
-			                </artifact>
-			            </component>
-			        </components>
-			    </configuration>
+				<groupId>org.glassfish.maven.plugin</groupId>
+				<artifactId>maven-glassfish-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<glassfishDirectory>/opt/glassfish4/glassfish</glassfishDirectory>
+					<user>admin</user>
+					<adminPassword>password</adminPassword>
+					<autoCreate>true</autoCreate>
+					<debug>true</debug>
+					<echo>false</echo>
+					<terse>true</terse>
+					<domain>
+						<name>domain1</name>
+						<adminPort>4848</adminPort>
+						<httpPort>8080</httpPort>
+						<httpsPort>8181</httpsPort>
+						<iiopPort>3700</iiopPort>
+						<jmsPort>7676</jmsPort>
+						<reuse>false</reuse>
+					</domain>
+					<components>
+						<component>
+							<name>${project.artifactId}</name>
+							<artifact>
+								${project.build.directory}/${project.build.finalName}.war
+							</artifact>
+						</component>
+					</components>
+				</configuration>
 			</plugin>
 		</plugins>
-  </build>
- 
+	</build>
+
 </project>
